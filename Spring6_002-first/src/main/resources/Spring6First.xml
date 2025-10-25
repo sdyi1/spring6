@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    这个是Spring的配置文件-->
+<!--    IDEA工具为我们提供了这个文件的模板,一定要使用这个模板来创建-->
+<!--    在这里配置Bean，这个配置文件就相当于一个容器-->
+
+<!--    bean标签中的两个重要属性
+
+        id：相当于这个Bean的身份证号，是Bean的唯一标识，不能重复
+        class：bean的全限定路径
+
+-->
+    <bean id="UserBean" class="com.nanhang.spring6.bean.User"/>
+    <bean id="UserDaoBean" class="com.nanhang.spring6.bean.UserDao"/>
+</beans>
