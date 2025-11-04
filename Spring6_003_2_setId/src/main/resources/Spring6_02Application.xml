@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--set注入之  简单数据类型注入-->
+    <bean id="User" class="com.nanhang.Bean.User" >
+        <property name="userName" value="张三"/>
+        <property name="passWord" value="20030428"/>
+        <property name="age" value="2"/>
+    </bean>
+
+<!--测试哪些类型是简单数据类型-->
+    <bean id="User2" class="com.nanhang.Bean.User2">
+        <property name="name" value="张三"/>
+        <property name="age" value="20"/>
+        <property name="age2" value="20"/>
+        <property name="choose" value="true"/>
+        <property name="choose2" value="false"/>
+        <property name="c" value="a"/>
+        <property name="c2" value="b"/>
+        <property name="season" value="Spring"/>
+        <property name="aClass" value="java.lang.String"/>
+        <!--再一般情况下，外面不会吧Date当作简单类型-->
+        <!--注意，如果硬要将Date当作简单数据类型，那value后面的字符串有格式要求：XXXX/XX/XX 不能乱写-->
+        <property name="birth" value="2003/04/28"/>
+
+
+    </bean>
+</beans>

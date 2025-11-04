@@ -1,0 +1,8 @@
+set注入专题
+-----------------------------------------------------------------------------------------
+1了解set注入内部Bean注入和外部Bean注入（Spring6_01Application.xml）
+
+-----------------------------------------------------------------------------------------
+2set注入————简单类型注入
+简单数据类型包括 :八大基本数据类型  byte short int long float double boolean char
+八大包装数据类型： Enum String Integer Date Temporal URI URL Locale class (Temporal是java8后退出的时区类型)

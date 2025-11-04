@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--普通注入-->
+
+    <!--<bean id="student" class="com.nanhang.Bean.Set3.Student">
+        <property name="name" value="张三"/>
+        <property name="clazz" ref="clazz"/>
+    </bean>
+
+    <bean id="clazz" class="com.nanhang.Bean.Set3.Clazz">
+        <property name="className" value="高三一班"/>
+    </bean>-->
+
+    <!--级联注入 只需要了解一下就可以用的少-->
+    <bean id="student" class="com.nanhang.Bean.Set3.Student">
+        <property name="name" value="张三"/>
+        <property name="clazz" ref="clazz"/>
+        <property name="clazz.className" value="高三一班"/>
+    </bean>
+<bean id="clazz" class="com.nanhang.Bean.Set3.Clazz"/>
+</beans>

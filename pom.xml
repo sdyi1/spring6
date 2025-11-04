@@ -11,6 +11,8 @@
     <modules>
         <module>spring6_001-revelation</module>
         <module>Spring6_002-first</module>
+        <module>spring6_003-dependency-injection</module>
+        <module>Spring6_003_2_setId</module>
     </modules>
 
     <properties>

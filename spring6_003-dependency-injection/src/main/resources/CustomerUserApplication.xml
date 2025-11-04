@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--实验构造注入-->
+    <bean id="userDao" class="com.nanhang.Dao.UserDao"/>
+
+    <bean id="constormerDao" class="com.nanhang.Dao.ConstomerDao"/>
+
+    <bean id="customerUserService" class="com.nanhang.Service.CustomerUser">
+       <!--构造注入-->
+        <!--constructor-arg :指定使用构造注入，
+        Bean类中有多个构造器会根据参数类型，参数数量来判断使用哪个构造器-->
+        <!--index:指定第几个参数，也可以直接使用name来指定哪个参数,也可以不给index和name，直接写ref让Spring自己判断-->
+        <!--ref:用于注入其他Bean对象-->
+        <!--value:用于注入简单类型的具体值-->
+
+        <!--指定全参构造的第一个参数-->
+        <constructor-arg index="0" ref="userDao"/>
+        <!--指定全参构造的第二个参数-->
+        <constructor-arg index="1" ref="constormerDao"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--实验数组注入-->
+    <!--简单数据类型数组注入-->
+    <bean id="YuQian" class="com.nanhang.Bean.Set04.QianDaye">
+        <property name="like">
+            <array>
+                <value>打篮球</value>
+                <value>玩游戏</value>
+                <value>看电影</value>
+            </array>
+        </property>
+    </bean>
+    <!--复杂数据类型数组注入-->
+    <bean id="YuQian2" class="com.nanhang.Bean.Set04.QianDaye">
+        <property name="grils">
+            <array>
+                <ref bean="gril1"/>
+                <ref bean="gril2"/>
+                <ref bean="gril3"/>
+            </array>
+
+        </property>
+    </bean>
+    <bean id="gril1" class="com.nanhang.Bean.Set04.Grils">
+        <property name="name" value="一号"/>
+    </bean>
+    <bean id="gril2" class="com.nanhang.Bean.Set04.Grils">
+        <property name="name" value="二号"/>
+    </bean>
+    <bean id="gril3" class="com.nanhang.Bean.Set04.Grils">
+        <property name="name" value="三号"/>
+    </bean>
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Set注入之—————内部Bean-->
+    <!--
+    注意相当于内部类，在内部通过set方法注入OrderDao,出了这个bean的范围就无效
+    name属性是set方法去掉set首字母小写
+    -->
+    <bean id="OrderUser" class="com.nanhang.Service.OrderService">
+        <property name="orderDao">
+            <bean class="com.nanhang.Dao.OrderDao"/>
+        </property>
+    </bean>
+
+    <!--set注入之————外部注入-->
+    <!--就是在外面配置Bean，需要的时候就调用Bean的 Id属性 前面的模块全是外部注入-->
+    <bean id="orderUserDao" class="com.nanhang.Dao.OrderDao"/>
+    <bean id="OrderUserByOutSet" class="com.nanhang.Service.OrderService">
+        <property name="orderDao" ref="orderUserDao"/>
+    </bean>
+
+
+</beans>
