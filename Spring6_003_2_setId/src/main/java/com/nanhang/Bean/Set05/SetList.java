@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * @author 徐
  * @version 1.0
-     * @target 实验set注入 list/set/Map集合
+     * @target 实验set注入 list/set/Map/properties集合
  * @date 2025/11/4
  * @ClassName SetList
  */

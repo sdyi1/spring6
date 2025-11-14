@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--实验注入Null和空字符串  实验注入特殊字符-->
+    <!--1.手动注入-->
+    <bean id="cat" class="com.nanhang.Bean.Set06.cat">
+        <!--手动注入null-->
+        <property name="name" >
+            <null/>
+        </property>
+        <!--自动赋值Null,不要给属性赋值就默认为Null 以age为例-->
+    </bean>
+    <!--实验特殊符号注入 ， 使用转义符-->
+    <bean id="math" class="com.nanhang.Bean.Set06.math">
+     <!--我们发现下面这样子写会报错-->
+        <!--<property name="result" value="2 < 3"/>-->
+     <!--方法一：转义符-->
+        <property name="result" value="2 &lt; 3"/>
+
+
+    <!--方法二 使用  <![CDATA[]]>    在[]内的符号不会被xml解析器解析-->
+        <property name="result2">
+            <value><![CDATA[2 !> 3]]></value>
+        </property>
+    </bean>
+
+</beans>

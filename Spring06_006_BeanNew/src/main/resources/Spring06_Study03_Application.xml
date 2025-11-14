@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--我们工厂类实现类FactoryBean后，配置类配置的class是工厂类路径，
+        会自动调用getObject方法，返回具体产品类，这里是Person-->
+    <bean id="Person" class="com.nanhang.Bean.Study04.PersonFactory"/>
+</beans>

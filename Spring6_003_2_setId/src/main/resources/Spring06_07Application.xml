@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<!--p命名空间注入-->
+    <!--
+        1 在spring配置文件头部添加p命名空间 (xmlns:p="http://www.springframework.org/schema/p")
+        2使用p命名空间
+            简单数据类型   p:属性名="属性值"
+            复杂数据类型   p:属性名-ref ="属性值"
+     -->
+
+    <bean id="cats" class="com.nanhang.Bean.Set07.cat" p:name="橘猫" p:age="5" p:animals-ref="animals"/>
+    <bean id="animals" class="com.nanhang.Bean.Set07.animals" p:animalsWhat="猫科类动物"/>
+
+
+    <!--首先我们复习一下构造注入-->
+            <!--  <bean id="cats2" class="com.nanhang.Bean.Set07.cat">
+                <constructor-arg name="name" value="波斯猫"/>
+                <constructor-arg name="age" value="5"/>
+                <constructor-arg name="animals" ref="animals"/>
+            </bean>-->
+    <!--c命名空间注入
+    1 在spring配置文件头部添加c命名空间(xmlns:c="http://www.springframework.org/schema/c")
+    2使用c命名空间
+    -->
+    <bean id="cats2" class="com.nanhang.Bean.Set07.cat" c:name="波斯猫" c:age="5" c:animals-ref="animals"/>
+
+    <!--util命名空间 创建可以重复使用的集合类型Bean-->
+        <!--解释：比如我有多个Bean里面配置的属性是map集合，集合里面的内容是一样的
+        这个时候我就可以先使用util命名空间配置一个map集合bean
+        在后面配置Bean的时候，需要配置集合属性，就调用配置好的集合bean
+
+        实际使用场景：当我们使用需要使用不同数据源（德鲁伊，Jdbc... ...）访问数据库的时候
+        需要配饰 driver url username password ,这些数据就是重复的，我们可以使用map集合存放
+        -->
+    <!--
+    1，   在spring配置文件头部添加util命名空间 (xmlns:util="http://www.springframework.org/schema/util")
+    2.    在 xsi:schemaLocation= 后面添加规范（http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd）
+    3     配置可以重复使用的集合Bean
+    4     在需要的时候应用配置的集合bean
+     -->
+    <util:properties id="utilsProperies">
+        <prop key="driver">com.mysql.jdbc.Driver</prop>
+        <prop key="url">jdbc:mysql://localhost:3306/spring06</prop>
+        <prop key="username">root</prop>
+        <prop key="password">root</prop>
+    </util:properties>
+
+
+    <bean id="maputil" class="com.nanhang.Bean.Set07.MapUtil">
+        <property name="properties" ref="utilsProperies"/>
+    </bean>
+    <bean id="maputil2" class="com.nanhang.Bean.Set07.MapUtil2">
+        <property name="properties" ref="utilsProperies"/>
+    </bean>
+</beans>

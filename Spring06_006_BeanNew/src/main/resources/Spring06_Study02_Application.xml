@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Spring提供的实例化方式，第二种:通过简单工厂模式。你需要在Spring配置文件中告诉Spring框架，调用哪个类的哪个方法获取Bean-->
+    <!--factory-method 属性指定的是工厂类当中的静态方法。也就是告诉Spring框架，调用这个方法可以获取Bean。-->
+    <bean id="getStar" class="com.nanhang.Bean.Study02.StarFactory" factory-method="getStar">
+        <!--<constructor-arg value="StartWoman"/> 这个配置就是专门用来给你的 getStar 工厂方法传递参数的-->
+        <constructor-arg value="StarWoman"/>
+    </bean>
+
+
+    <!--Spring提供的实例化方式，第三种: 工厂方法模式。 通过factory-bean factory-method属性共同完成-->
+    <!--工厂方法需要实例化工厂类-->
+    <bean id="FighterFactory" class="com.nanhang.Bean.Study03.FactoryFighter"/>
+    <bean id="GunFactory" class="com.nanhang.Bean.Study03.FactoryGun"/>
+
+    <!--利用工厂实例化产品，factory-bean指定哪个工厂，factory-method指定使用工厂类里面的哪个方法实例化产品类-->
+    <bean id="Fighter" factory-bean="FighterFactory" factory-method="getWea"/>
+    <bean id="Gun" factory-bean="GunFactory" factory-method="getWea"/>
+
+
+</beans>

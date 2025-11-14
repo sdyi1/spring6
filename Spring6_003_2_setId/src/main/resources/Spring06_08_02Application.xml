@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--测试根据类型自动装配-->
+    <!--基于set方法-->
+    <!--在根据类型自动装配的时候，在有效的配置文件中，被装的某种实例只能有一个，比如我这里再写一个UserDao的配置就会报错-->
+    <bean class="com.nanhang.Bean.set08.VipUserDao"/>
+    <bean class="com.nanhang.Bean.set08.UserDao"/>
+
+    <bean id="orderDao" class="com.nanhang.Bean.set08.OrderDao" autowire="byType"/>
+</beans>

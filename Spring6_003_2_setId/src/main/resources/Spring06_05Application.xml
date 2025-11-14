@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--实验set注入 list/set/Map集合-->
+<!--实验set注入 list/set/Map/properties集合-->
 
     <bean id="SetList" class="com.nanhang.Bean.Set05.SetList">
 <!--        注入list集合 list集合有序可重复-->
@@ -27,6 +27,12 @@
                 <entry key="2" value="李四"/>
                 <entry key="3" value="王五"/>
             </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="张三">你好</prop>
+                <prop key="李四">你好</prop>
+            </props>
         </property>
         <!--注意如果注入的是Bean类型数据，参考前面学习的配置简单数据类型和复杂数据类型，使用ref-->
     </bean>

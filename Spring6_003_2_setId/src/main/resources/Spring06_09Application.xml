@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--引用外部配置文件-->
+    <!--首先引入context命名空间,再添加约束（可以直接复制上面本来就有的，将Bean改成context）
+        http://www.springframework.org/schema/context
+
+        再使用context:property-placeholder标签，配置location属性（外部配置文件的类路径）
+
+        最后从配置文件中取值 ${键值对的key}
+
+        问题：为什么配置文件中要添加前缀jdbc. 因为不添加有些数据会优先取我们的系统变量 比如username1没有添加前缀，获取到的就是电脑用户 徐
+     -->
+    <context:property-placeholder location="Spring06_09JDBC.properties"/>
+    <bean id="MyDataSource" class="com.nanhang.Bean.Set09.MyDataSource">
+        <!--从配置文件中取值装配-->
+        <property name="drive" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="username1" value="${username}"/>
+    </bean>
+</beans>

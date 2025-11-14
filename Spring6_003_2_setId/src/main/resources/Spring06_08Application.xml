@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="UserDao" class="com.nanhang.Bean.set08.UserDao"/>
+
+    <!--正常装配-->
+    <bean id="UserService" class="com.nanhang.Bean.set08.UserService">
+        <property name="userDao" ref="UserDao"/>
+    </bean>
+    <!--根据Bean名字自动装配-->
+    <!--autowire="byName"-->
+    <!--然后我们的BeanId就不能随便写了， 需要写成Bean属性的 set方法 去掉set后首字母小写-->
+    <!--比如我们需要给UserService对象注入UserDao ，UserService中有SetUserDao方法，这个时候我们配置文件中Bean UserDao的id就应该是userDao-->
+    <bean id="UserService1" class="com.nanhang.Bean.set08.UserService" autowire="byName"/>
+
+    <bean id="userDao" class="com.nanhang.Bean.set08.UserDao"/>
+</beans>
