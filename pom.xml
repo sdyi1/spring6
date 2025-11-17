@@ -16,6 +16,7 @@
         <module>Spring6_004_scope</module>
         <module>Spring06_005_factory</module>
         <module>Spring06_006_BeanNew</module>
+        <module>Spring06_999_CGB</module>
     </modules>
 
     <properties>

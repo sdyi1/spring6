@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--先尝试把Data当作简单数据类型注入，详细知识点见 Spring06_003_2_setId/resources/Spring06_02Application.xml-->
+    <bean id="user" class="com.nanhang.Bean.CGB_01.User">
+        <property name="birth" value="2003/04/28"/>
+    </bean>
+
+    <!--在尝试使用BeanFactory实例化-->
+    <bean id="userByFactory" class="com.nanhang.Bean.CGB_01.UserFactory"/>
+
+    <!--尝试使用工厂获取Data对象，注入Data到User对象中-->
+        <!--通过获取Data-->
+    <bean id="Dataget" class="com.nanhang.Bean.CGB_01.DataFactory">
+        <constructor-arg index="0" value="2003-04-28"/>
+    </bean>
+    <bean id="User2" class="com.nanhang.Bean.CGB_01.User" >
+        <property name="birth" ref="Dataget"/>
+    </bean>
+
+    <bean id="User3" class="com.nanhang.Bean.CGB_01.UserFactory02">
+        <property name="dataget" value="2003-04-28"/>
+    </bean>
+
+</beans>
