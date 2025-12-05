@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--测试构造注入的循环依赖Bean的实例化-->
+    <bean id="husband" scope="singleton" class="com.nanhang.Bean.Study02.Husband" c:name="丈夫张三" c:wife-ref="wife"/>
+    <bean id="wife" scope="singleton" class="com.nanhang.Bean.Study02.Wife" c:name="妻子李四" c:husband-ref="husband"/>
+
+    <!--
+        结果：构造注入无法实现 循环依赖Bean的实例化
+            set注入的实例化可以实现主要是因为将Bean的实例化和注入分开来执行，实例化后就“曝光” 可以直接被调用
+            而构造注入是一步完成，没有完成就不会曝光，导致第一个Bean注入的时候，找不到第二个Bean
+    -->
+</beans>

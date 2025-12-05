@@ -17,6 +17,12 @@
         <module>Spring06_005_factory</module>
         <module>Spring06_006_BeanNew</module>
         <module>Spring06_999_CGB</module>
+        <module>Spring06_007_BeanStep</module>
+        <module>Spring06_008_BeanCirculation</module>
+        <module>Spring06_009_review-reflect</module>
+        <module>Spring06_010_MySpring</module>
+        <module>Spring06_010_MySpring</module>
+        <module>Spring06_010_MySpring</module>
     </modules>
 
     <properties>

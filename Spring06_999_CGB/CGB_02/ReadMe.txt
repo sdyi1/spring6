@@ -1,0 +1,1 @@
+测试toUpperCase() 和charAt( )作用位于Main
