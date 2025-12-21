@@ -23,6 +23,9 @@
         <module>Spring06_010_MySpring</module>
         <module>Spring06_010_MySpring</module>
         <module>Spring06_010_MySpring</module>
+        <module>Spring06_011_review-annotation</module>
+        <module>Spring06_012_IOCAnnotation</module>
+        <module>Spring06_13_staticProxy</module>
     </modules>
 
     <properties>
