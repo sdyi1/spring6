@@ -8,4 +8,5 @@ package com.nanhang;
  * @ClassName User
  */
 public class User implements UserTest{
+    
 }

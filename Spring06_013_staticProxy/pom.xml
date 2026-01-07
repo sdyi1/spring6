@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Spring06_13_static_proxy</artifactId>
+    <artifactId>Spring06_013_static_proxy</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

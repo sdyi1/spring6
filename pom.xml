@@ -25,7 +25,12 @@
         <module>Spring06_010_MySpring</module>
         <module>Spring06_011_review-annotation</module>
         <module>Spring06_012_IOCAnnotation</module>
-        <module>Spring06_13_staticProxy</module>
+        <module>Spring06_013_staticProxy</module>
+        <module>Spring06_014_dynamicProxy</module>
+        <module>Spring06_015_CGlibProxy</module>
+        <module>Spring06_015_CGlibProxy</module>
+        <module>Spring06_016_SpringAOP</module>
+        <module>Spring06_017_Spring_Aspectj_AOP_Annotation</module>
     </modules>
 
     <properties>
