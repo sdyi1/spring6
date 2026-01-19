@@ -13,6 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>CGB_01</module>
+        <module>CGB_02</module>
+        <module>CGB_03</module>
+        <module>CGB_04</module>
     </modules>
 
     <properties>

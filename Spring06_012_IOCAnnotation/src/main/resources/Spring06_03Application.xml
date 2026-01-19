@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--方法一：
+                use-default-filters="false"
+                如果这个属性是false,那么com.nanhang.Study03.Bean下面所有 声明Bean的注解全部失效
+                -->
+    <context:component-scan base-package="com.nanhang.Study03.Bean" use-default-filters="false">
+        <!--在里面设置不过滤哪些注解下的类，这些类会被实例化-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+
+    <!--方法二：
+    如果这个属性的值是true，表示com.powernode.spring6.bean2下的所有的带有声明Bean的注解全部生效。
+    use-default-filters="true"默认值就是true，可以，不用写。
+    -->
+    <context:component-scan base-package="com.nanhang.Study03.Bean" use-default-filters="true">
+
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!--总结：方法一相当于，先全部排除，再挑选需要的
+            方法二相当于，先挑选需要的，再排除不需要的-->
+
+    <!--
+        include：包括
+        exclude：排除
+    -->
+</beans>

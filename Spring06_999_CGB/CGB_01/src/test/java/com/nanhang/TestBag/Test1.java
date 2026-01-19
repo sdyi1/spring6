@@ -1,6 +1,7 @@
 package com.nanhang.TestBag;
 
 import com.nanhang.Bean.CGB_01.User;
+import com.nanhang.CGB02.user2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,6 +14,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @ClassName Test1
  */
 public class Test1 {
+
+    @Test
+    public void test02(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("CGB_002_Application.xml");
+        user2 user2 = applicationContext.getBean("user2", user2.class);
+        System.out.println(user2);
+    }
 
 
 @Test

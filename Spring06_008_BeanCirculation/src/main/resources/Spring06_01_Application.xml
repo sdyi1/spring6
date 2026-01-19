@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--singleton + setter模式下的循环依赖是没有任何问题的。-->
+    <!--singleton表示在整个Spring容器当中是单例的，独一无二的对象。-->
+
+    <!--
+    在singleton + setter模式下，为什么循环依赖不会出现问题，Spring是如何应对的?
+        主要的原因是，在这种模式下Spring对Bean的管理主要分为清晰的两个阶段:
+        第一个阶段:在Spring容器加载的时候，实例化Bean，只要其中任意一个Bean实例化之后，马上进行“曝光"【不等属性赋值就曝光】(获取配置文件ApplicationContext的时候就实例化所有对象)
+        第二个阶段:Bean“曝光"之后，再进行属性的赋值(调用set方法。) （getBean的时候注入）
+        核心解决方案是:实例化对象和对象的属性赋值分为两个阶段来完成的。
+
+        总结：会先实例化所有Bean，再去赋值，赋值的时候，对象都已经实例化完成了，所以可以Bean循环依赖
+    -->
+
+    <bean id="husband" class="com.nanhang.Bean.Study01.Husband" p:name="丈夫张三" p:wife-ref="wife"/>
+    <bean id="wife" class="com.nanhang.Bean.Study01.Wife" p:name="Alice妻子" p:husband-ref="husband"/>
+
+
+    <!--多例-->
+    <bean id="husband1" class="com.nanhang.Bean.Study01.Husband" scope="prototype" p:name="丈夫张三" p:wife-ref="wife1"/>
+    <bean id="wife1" class="com.nanhang.Bean.Study01.Wife" scope="prototype" p:name="Alice妻子" p:husband-ref="husband1"/>
+
+    <!--测试结果：单例可以实现，多例报错-->
+    <!--报错原因：
+    当实例化husband1的时候new一个husband对象，然后注入，
+    注入wife的时候，会new wife
+    new wife 的时候，需要husband对象，根据多例的特性：每次需要都会new 一个新的对象
+    就会重写new 一个husband对象
+    以此循环，无解报错
+    -->
+
+    <!--
+    思考一下，两个Bean，一个单例，一个多例。会不会报错（脑海中执行一下程序的执行过程）
+    -->
+</beans>

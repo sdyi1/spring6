@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--这个配置文件也是用户自己写的-->
+<bean>
+    <bean id="user" class="com.powernode.mySpring.Bean.User">
+        <property name="name" value="张三"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean id="userDao1" class="com.powernode.mySpring.Bean.UserDao"/>
+    <bean id="userService" class="com.powernode.mySpring.Bean.UserService">
+        <property name="userDao" ref="userDao1" />
+    </bean>
+</bean>
