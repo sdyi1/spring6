@@ -31,6 +31,9 @@
         <module>Spring06_015_CGlibProxy</module>
         <module>Spring06_016_SpringAOP</module>
         <module>Spring06_017_Spring_Aspectj_AOP_Annotation</module>
+        <module>Spring06_018_AOP_Case</module>
+        <module>Spring06_019_Transaction</module>
+        <module>Spring06_018_2_jdbcTemplate</module>
     </modules>
 
     <properties>

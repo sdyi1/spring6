@@ -34,7 +34,7 @@ public class Proxy {
     @Around("execution(public void com.nanhang.Study01.Service..*(..))")
     public void AroundTest(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("前环绕通知执行");
-        joinPoint.proceed();
+        joinPoint.proceed();//
         System.out.println("后环绕通知执行");
     }
     //测试异常通知
